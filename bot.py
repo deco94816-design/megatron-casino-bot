@@ -47,22 +47,26 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BOT_TOKEN = "8062106287:AAHuFUn04LihAfyvF8mRCAz7lg_BJRZECCg".strip()
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN environment variable is required")
 PROVIDER_TOKEN = ""
-ADMIN_ID = 5709159932
+ADMIN_ID = int(os.getenv("ADMIN_ID", "5709159932"))
 
 # Bot username for bonus check
-BOT_USERNAME = "Librate"
+BOT_USERNAME = os.getenv("BOT_USERNAME", "Librate")
 
 # Data file path
-BOT_DB = "bot_data.db"  # SQLite database (fresh start)
-DATA_FILE = "bot_data.json"  # JSON data file
+BOT_DB = os.getenv("BOT_DB", "bot_data.db")
+DATA_FILE = os.getenv("DATA_FILE", "bot_data.json")
 
 # Admin management
 admin_list = {ADMIN_ID, 8311802199}
-ADMIN_BALANCE = 9999999999
+ADMIN_BALANCE = int(os.getenv("ADMIN_BALANCE", "9999999999"))
 
 # Streaming message feature (admin-controlled)
 streaming_enabled = False  # Toggle for message streaming effect

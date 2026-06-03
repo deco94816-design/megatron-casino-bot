@@ -1,22 +1,30 @@
 """Casino Bot Configuration — all constants and settings."""
 import os
 
-BOT_TOKEN = "8062106287:AAHuFUn04LihAfyvF8mRCAz7lg_BJRZECCg".strip()
-ADMIN_ID = 5709159932
-BOT_USERNAME = "Librate"
-BOT_DB = "bot_data.db"  # SQLite database (fresh start)
-DATA_FILE = "bot_data.json"  # JSON data file
-admin_list = {ADMIN_ID, 8311802199}
-ADMIN_BALANCE = 9999999999
-TEMPLATES_DB = "templates.db"
-EMOJI_DB = "emoji_mappings.db"
-STARS_TO_USD = 0.0179
-STARS_TO_TON = 0.01201014
-COINFLIP_STICKERS_FILE = "coinflip_stickers.json"
-CF_MULTIPLIER = 1.92
-PREDICT_HOUSE_EDGE = 0.05
-PREDICT_DEFAULT_BET = 10
-PREDICT_MIN_BET = 1
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
+ADMIN_ID = int(os.getenv("ADMIN_ID", "5709159932"))
+BOT_USERNAME = os.getenv("BOT_USERNAME", "Librate")
+
+BOT_DB = os.getenv("BOT_DB", "bot_data.db")
+DATA_FILE = os.getenv("DATA_FILE", "bot_data.json")
+TEMPLATES_DB = os.getenv("TEMPLATES_DB", "templates.db")
+EMOJI_DB = os.getenv("EMOJI_DB", "emoji_mappings.db")
+COINFLIP_STICKERS_FILE = os.getenv("COINFLIP_STICKERS_FILE", "coinflip_stickers.json")
+
+admin_list = {ADMIN_ID, 8311802199}  # keeping the second admin hardcoded for now or it can be dynamic
+ADMIN_BALANCE = int(os.getenv("ADMIN_BALANCE", "9999999999"))
+
+STARS_TO_USD = float(os.getenv("STARS_TO_USD", "0.0179"))
+STARS_TO_TON = float(os.getenv("STARS_TO_TON", "0.01201014"))
+CF_MULTIPLIER = float(os.getenv("CF_MULTIPLIER", "1.92"))
+PREDICT_HOUSE_EDGE = float(os.getenv("PREDICT_HOUSE_EDGE", "0.05"))
+PREDICT_DEFAULT_BET = int(os.getenv("PREDICT_DEFAULT_BET", "10"))
+PREDICT_MIN_BET = int(os.getenv("PREDICT_MIN_BET", "1"))
 
 GAME_CONFIG = {
     "dice": {
