@@ -1,13 +1,5 @@
-<p align="center">
-  <img src="banner.png" alt="Casino Bot Banner">
-</p>
-
-<h3 align="center">🎰 Casino Telegram Bot (v2)</h3>
-
-<p align="center">
-  <i>Architected and developed by <b>Amex (aka Abhishek)</b></i>
-</p>
-
+<h1 align="center">🎰 Casino Telegram Bot (v2)</h1>
+<h3 align="center">Architected and Developed by Amex (aka Abhishek)</h3>
 <hr>
 
 A feature-rich, high-performance Telegram Casino Bot built with Python. This bot provides a seamless and interactive casino experience directly within Telegram, complete with fully functional mini-games, an integrated economy, cryptocurrency support, and multi-language capabilities.
