@@ -41,9 +41,17 @@ from bot_network import (
     get_all_user_ids_from_bot
 )
 
+from logging.handlers import RotatingFileHandler
+
+os.makedirs('logs', exist_ok=True)
+
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    level=logging.INFO,
+    handlers=[
+        RotatingFileHandler('logs/bot.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8'),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 
